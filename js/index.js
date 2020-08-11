@@ -1,4 +1,5 @@
 // Your code goes here
+// Coded By: Joshua Martinez
 
 //
 // #1 Load
@@ -55,19 +56,25 @@ body.addEventListener('keyup', (e) => {
 //
 
 let imgClick = document.querySelectorAll('img');
+let rotate = false;
 // console.log(imgClick);
 imgClick.forEach((e) => {
     // console.log(el);
     e.addEventListener('click', (el) => {
+        // e.style.transform = 'rotate(180deg)';
         e.style.transform = 'rotate(180deg)';
-        // let counter = 0;
-        // Counter to be able to rotate on any click
-        // if (counter % 2 === 0) { 
-        //     e.style.transform = 'rotate(180deg)';
-        // } else if (counter % 2 === 1) { 
-        //     e.style.transform = 'rotate(180deg)'
-        //     counter++;
-        // }
+        rotate = true;
+    });
+});
+
+imgClick.forEach((e) => {
+    // console.log(e);
+    e.addEventListener('dblclick', (el) => {
+        // console.log(e);
+        if (rotate === true) {
+            e.style.transform = 'rotate(0deg)';
+            rotate = false;
+        }
     });
 });
 
